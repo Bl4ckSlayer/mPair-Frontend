@@ -10,9 +10,12 @@ const UpdateSalary = () => {
   const handleForm = (e) => {
     e.preventDefault();
     setTitle(e.target.value);
-    fetch(`http://localhost:5000/allemployees?title=${e.target.value}`, {
-      method: "GET",
-    })
+    fetch(
+      `https://mpairbackend.onrender.com/allemployees?title=${e.target.value}`,
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -44,7 +47,7 @@ const UpdateSalary = () => {
       updatedSalary.salary = salary;
     }
 
-    fetch(`http://localhost:5000/updateSalary?id=${newData._id}`, {
+    fetch(`https://mpairbackend.onrender.com/updateSalary?id=${newData._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -54,7 +57,7 @@ const UpdateSalary = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        fetch(`http://localhost:5000/allemployees?title=${title}`)
+        fetch(`https://mpairbackend.onrender.com/allemployees?title=${title}`)
           .then((res) => res.json())
           .then((data) => setEmployees(data));
         toast.success(`Hi ${newData.first_Name}, your salary has been updated`);

@@ -40,7 +40,7 @@ const AddEmployee = () => {
       salary,
       department,
     };
-    fetch("http://localhost:5000/addEmployee", {
+    fetch("https://mpairbackend.onrender.com/addEmployee", {
       method: "POST",
       headers: {
         "content-type": "application/json",

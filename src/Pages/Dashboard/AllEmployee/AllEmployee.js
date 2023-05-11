@@ -5,7 +5,7 @@ const AllEmployee = () => {
   const { data: employees = [], refetch } = useQuery({
     queryKey: ["employees"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/allemployees");
+      const res = await fetch("https://mpairbackend.onrender.com/allemployees");
       const data = await res.json();
       console.log(data);
       return data;
